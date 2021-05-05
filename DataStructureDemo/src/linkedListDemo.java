@@ -8,7 +8,8 @@ public class linkedListDemo {
 		linkedList.append(56);
 		linkedList.append(30);
 		linkedList.append(70);
-
+		linkedList.insertAfter(linkedList.head, 40);
+		
 		linkedList.printList();
 	}
 }
@@ -52,5 +53,16 @@ class LinkedList {
 			last = last.next;
 		}
 		last.next = newNode;
+	}
+	public void insertAfter(Node prevNode, int data) {
+		if(prevNode == null) {
+			System.out.println("prevoius node should not be null ");
+			return;
+		}
+		
+		Node newNode = new Node(data);
+		newNode.next = prevNode.next;
+		prevNode.next = newNode;
+		
 	}
 }
