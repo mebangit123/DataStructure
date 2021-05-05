@@ -2,15 +2,16 @@ public class linkedListDemo {
 
 	public static void main(String[] args) {
 		System.out.println("LinkedList Demo");
-		
 		LinkedList linkedList = new LinkedList();
 		
 		linkedList.append(56);
 		linkedList.append(30);
 		linkedList.append(70);
-		linkedList.insertAfter(linkedList.head, 40);
-		
+		//linkedList.insertAfter(linkedList.head, 40);
+		linkedList.pop();
 		linkedList.printList();
+		
+		
 	}
 }
 
@@ -40,6 +41,7 @@ class LinkedList {
 			System.out.print(temp.data + "->");
 			temp = temp.next;
 		}
+		System.out.println("null");
 	}
 	public void append(int data) { 
 		Node newNode = new Node(data);
@@ -63,6 +65,12 @@ class LinkedList {
 		Node newNode = new Node(data);
 		newNode.next = prevNode.next;
 		prevNode.next = newNode;
-		
+	}
+	public void pop() {
+		if(head == null)
+			System.out.println("List is empty");
+		Node temp = head;
+		head = head.next;
+		temp.next = null;
 	}
 }
