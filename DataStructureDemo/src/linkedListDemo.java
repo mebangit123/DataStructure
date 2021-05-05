@@ -2,13 +2,15 @@ public class linkedListDemo {
 
 	public static void main(String[] args) {
 		System.out.println("LinkedList Demo");
+		
 		LinkedList linkedList = new LinkedList();
 		
 		linkedList.append(56);
 		linkedList.append(30);
 		linkedList.append(70);
 		//linkedList.insertAfter(linkedList.head, 40);
-		linkedList.pop();
+		//linkedList.pop();
+		linkedList.popLast();
 		linkedList.printList();
 		
 		
@@ -72,5 +74,17 @@ class LinkedList {
 		Node temp = head;
 		head = head.next;
 		temp.next = null;
+	}
+	public void popLast() {
+		if(head == null)
+			System.out.println("List is empty");
+		Node last = head;
+		Node temp = null;
+		while(last.next != null) {
+			temp = last;
+			last = last.next;
+		}
+		temp.next = null;
+		last.next = temp.next;
 	}
 }
