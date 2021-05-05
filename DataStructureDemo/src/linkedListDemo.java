@@ -4,9 +4,10 @@ public class linkedListDemo {
 		System.out.println("LinkedList Demo");
 		
 		LinkedList linkedList = new LinkedList();
-		linkedList.push(70);
-		linkedList.push(30);
-		linkedList.push(56);
+		
+		linkedList.append(56);
+		linkedList.append(30);
+		linkedList.append(70);
 
 		linkedList.printList();
 	}
@@ -38,5 +39,18 @@ class LinkedList {
 			System.out.print(temp.data + "->");
 			temp = temp.next;
 		}
+	}
+	public void append(int data) { 
+		Node newNode = new Node(data);
+		
+		if(head == null) {
+			head  = newNode;
+			return;
+		}
+		Node last = head;
+		while(last.next != null) {
+			last = last.next;
+		}
+		last.next = newNode;
 	}
 }
