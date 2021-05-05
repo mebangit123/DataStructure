@@ -10,10 +10,9 @@ public class linkedListDemo {
 		linkedList.append(70);
 		//linkedList.insertAfter(linkedList.head, 40);
 		//linkedList.pop();
-		linkedList.popLast();
+		//linkedList.popLast();
+		linkedList.searchElement(56);
 		linkedList.printList();
-		
-		
 	}
 }
 
@@ -87,4 +86,17 @@ class LinkedList {
 		temp.next = null;
 		last.next = temp.next;
 	}
+	public void searchElement(int data)
+    {
+        Node n=head;
+        int count=0;
+        while(n != null)
+        {
+		   count =count+1;
+		   if(n.data == data) {
+	       	System.out.println("Node with value "+data+" is found at position " +count);
+	       }
+            n=n.next;   
+        }
+    }
 }
