@@ -12,6 +12,9 @@ public void addQueue(int data) {
 public void printQueue() {
 	link.printList();
 }
+public void deQueue() {
+	link.pop();
+}
 public static void main(String[] args) {
 	QueueDemo queue = new QueueDemo();
 	
@@ -19,6 +22,7 @@ public static void main(String[] args) {
 	queue.addQueue(30);
 	queue.addQueue(76);
 
+	queue.deQueue();
 	queue.printQueue();
 }
 }
