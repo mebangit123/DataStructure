@@ -12,6 +12,7 @@ public class linkedListDemo {
 		//linkedList.insertAfter(linkedList.head, 40);
 		//linkedList.pop();
 		//linkedList.popLast();
+		linkedList.insertAny(3, 40);
 		linkedList.searchElement(56);
 		linkedList.printList();
 	}
@@ -102,4 +103,21 @@ class LinkedList {
             n=n.next;   
         }
     }
+	public void insertAny(int index,int data)
+    {
+        Node n = new Node(data);
+        n.data=data;
+        n.next=null;
+        Node t= head;
+        if(index==0)
+        {
+        push(data);
+        }
+        for(int i=1;i<index-1;i++)
+        {
+            t=t.next;
+        }
+            n.next=t.next;
+            t.next=n;
+        }
 }
