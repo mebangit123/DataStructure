@@ -13,7 +13,9 @@ public class linkedListDemo {
 		//linkedList.pop();
 		//linkedList.popLast();
 		linkedList.insertAny(3, 40);
-		linkedList.searchElement(56);
+		//linkedList.searchElement(56);
+		linkedList.printList();
+		linkedList.deleteNodeAtPos(3);
 		linkedList.printList();
 	}
 }
@@ -103,21 +105,33 @@ class LinkedList {
             n=n.next;   
         }
     }
-	public void insertAny(int index,int data)
+	public void insertAny(int pos,int data)
     {
         Node n = new Node(data);
         n.data=data;
         n.next=null;
         Node t= head;
-        if(index==0)
+        if(pos==0)
         {
         push(data);
         }
-        for(int i=1;i<index-1;i++)
+        for(int i=1;i<pos-1;i++)
         {
             t=t.next;
         }
             n.next=t.next;
             t.next=n;
         }
+	public void deleteNodeAtPos(int pos) {
+		if(pos == 0) {
+			pop();
+		}
+		Node delPrev = head;
+		for(int i = 1; i < pos -1; i++) {
+			delPrev = delPrev.next;
+		}
+		Node current = delPrev.next;
+		delPrev.next = current.next;
+		current.next = null;
+	}
 }
